@@ -24,8 +24,16 @@
         <?php
                            if($_REQUEST['success'] == 'added'){
                                ?>
-        <div class="alert alert-success text-center" role="alert">Post has been added successfully</div>
+                            <div class="alert alert-success text-center" role="alert">Post has been added successfully</div>
         <?php
+                           }elseif($_REQUEST['success'] == 'updated'){
+                               ?>
+                                       <div class="alert alert-success text-center" role="alert">Post has been updated successfully</div>
+                               <?php
+                           }elseif($_REQUEST['message'] == 'deleted'){
+                                ?>
+                                    <div class="alert alert-success text-center" role="alert">Post has been deleted successfully</div>
+                                <?php
                            }
                        ?>
         <?php
@@ -41,16 +49,17 @@
             <?php
            foreach($query as $q){
                ?>
-                 <div class="col-4 d-flex justify-content-center">
-                      <div class="card text-white bg-dark mt-5" >
-                          <div class="card-body" style="width: 18rem;">
-                            <h5 class="card-title"><?= $q['title']?></h5>
-                            <p class="card-text"><?= $q['content'] ?></p>
-                            <a href="" class="btn btn-light">Read More <span class="text-danger">&rarr;</span></a>
-                         </div>
-                         
-                     </div>
+            <div class="col-4 d-flex justify-content-center">
+                <div class="card text-white bg-dark mt-5">
+                    <div class="card-body" style="width: 18rem;">
+                        <h5 class="card-title"><?= $q['title']?></h5>
+                        <p class="card-text"><?= $q['content'] ?></p>
+                        <a href="view.php?id=<?= $q['id'] ?>" class="btn btn-light">Read More <span
+                                class="text-danger">&rarr;</span></a>
                     </div>
+
+                </div>
+            </div>
             <?php
            }
         ?>
